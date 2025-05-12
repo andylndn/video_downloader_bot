@@ -6,7 +6,7 @@ import yt_dlp
 from aiogram.utils import executor
 import re
 
-API_TOKEN = '7036607708:AAFpRYZJvYwS_mlMbPKoj_SzBx4tPoTLFQA'
+TOKEN = os.getenv('TELEGRAM_TOKEN')
 
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher(bot)
