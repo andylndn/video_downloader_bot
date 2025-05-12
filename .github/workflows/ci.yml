@@ -1,0 +1,30 @@
+name: Install dependencies and run bot
+
+on:
+  push:
+    branches:
+      - main  # Или ветка, на которой ты работаешь
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'  # Указывай нужную версию Python
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: Run the bot
+      run: |
+        python bot.py  # Или другой файл, если твой бот в другом файле
